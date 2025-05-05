@@ -12,7 +12,9 @@ while True:
     if message_to_server.lower() == "exit":
         break
 
-    message_from_server = client_socket_obj.recv(1024).decode("utf-8")
-    print(f"Server reply: {message_from_server}")
+    while True:
+        message_from_server = client_socket_obj.recv(1024).decode("utf-8")
+        print(f"Server reply: {message_from_server}")
+        break
 
 client_socket_obj.close()
