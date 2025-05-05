@@ -1,1 +1,5 @@
 __pycache__/string.cpython-313.pyc
+*.txt
+*.pickle
+*.json
+*.csv
