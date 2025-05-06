@@ -22,11 +22,24 @@ class LinkedList:
 
         self.prev_node = self.new_node
 
-    def show(self):
+    # def show(self):
+    #     self.temp_node = self.first_node
+    #     while self.temp_node is not None:
+    #         print(self.temp_node.data)
+    #         self.temp_node = self.temp_node.next
+
+    def __iter__(self):
         self.temp_node = self.first_node
-        while self.temp_node is not None:
-            print(self.temp_node.data)
+        return self
+
+    def __next__(self):
+        if self.temp_node.next is not None:
+            data = self.temp_node.data
             self.temp_node = self.temp_node.next
+            return data
+        else:
+            print(self.temp_node.data)
+            raise StopIteration
 
 
 l_list = LinkedList()
@@ -35,4 +48,7 @@ l_list.add(200)
 l_list.add(300)
 l_list.add(400)
 
-l_list.show()
+# l_list.show()
+
+for item in l_list:
+    print(item)
