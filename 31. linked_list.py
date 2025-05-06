@@ -33,12 +33,11 @@ class LinkedList:
         return self
 
     def __next__(self):
-        if self.temp_node.next is not None:
+        if self.temp_node is not None:
             data = self.temp_node.data
             self.temp_node = self.temp_node.next
             return data
         else:
-            print(self.temp_node.data)
             raise StopIteration
 
 
