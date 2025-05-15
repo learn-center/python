@@ -7,6 +7,26 @@ demo = Demo()
 # demo.__init__() # not needed to invoke __init__, since its automatically called when instantiated as above
 
 
+class Fruit:
+    def __init__(self):
+        print("1")
+
+
+class Apple(Fruit):
+    def __init__(self):
+        # super()._init()
+        print("2")
+
+    def dummy():
+        pass
+
+
+obj = Apple()  # 2
+# Apple defines its own constructor (_init), which overrides the __init_ of the parent class Fruit.
+# The _init_ method of Fruit is not automatically called because Apple has its own _init_ that overrides it.
+# If you wanted to also call the _init_ of Fruit, you would need to explicitly invoke it using super()._init() inside Apple's __init_, or remove __init_ in Apple class
+
+
 class Student:
     # number: int
     # name: str
