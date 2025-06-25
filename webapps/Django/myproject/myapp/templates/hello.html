@@ -1,3 +1,18 @@
 <h1>Hello from html template</h1>
 
 <span>{{message}}</span>
+
+<form method="post" action="/save_product/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{product_form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+
+<h3>Products:</h3>
+{% for product in products %}
+<p>{{ product.name }} - {{ product.price }} - {{ product.description }}</p>
+<p>{{product.photo}}</p>
+
+<img src="/{{product.photo}}" width="100" height="100" alt="pic" />
+{% endfor %}
